@@ -65,34 +65,23 @@ if Ser.isOpen():
                         # 将对应点画在图像上
                         for i in range(12):
                             # 画线
+                            End_Point = (PicCenter[0] + int(Data_Long[i] * math.sin(
+                                            (Angle_begin + Angle_increment * (i + 1)) / 180.0 * math.pi)),
+                                         PicCenter[1] + int(Data_Long[i] * math.cos(
+                                             (Angle_begin + Angle_increment * (i + 1)) / 180.0 * math.pi)))
+
                             if True:
-                                cv2.line(PicShow, PicCenter,
-                                         (PicCenter[0] + int(Data_Long[i] *
-                                                             math.sin((Angle_begin + Angle_increment * (
-                                                                     i + 1)) / 180.0 * math.pi)),
-                                          PicCenter[1] + int(Data_Long[i] *
-                                                             math.cos((Angle_begin + Angle_increment * (
-                                                                     i + 1)) / 180.0 * math.pi))),
-                                         (255, 0, 0), thickness=1)
+                                cv2.line(PicShow, PicCenter, End_Point, (255, 0, 0), thickness=1)
 
                             # 画点
                             if True:
-                                cv2.circle(PicShow,
-                                           (PicCenter[0] + int(Data_Long[i] *
-                                                               math.sin((Angle_begin + Angle_increment * (
-                                                                       i + 1)) / 180.0 * math.pi)),
-                                            PicCenter[1] + int(Data_Long[i] *
-                                                               math.cos((Angle_begin + Angle_increment * (
-                                                                       i + 1)) / 180.0 * math.pi))),
-                                           2, (0, Data_intensity[i], 0), thickness=2)
-                                
+                                cv2.circle(PicShow, End_Point, 2, (0, Data_intensity[i], 0), thickness=2)
 
                         if Angle_begin >= Angle_end:
                             cv2.circle(PicShow, PicCenter, 3, (0, 0, 255), thickness=3)
                             cv2.imshow("OUT", PicShow)
                             cv2.waitKey(2)
                             PicShow = numpy.zeros((1000, 1000, 3), dtype=numpy.uint8)
-
 
                         del Data_GetAll[:Begin_N + 47]
                         Data_Long.clear()
