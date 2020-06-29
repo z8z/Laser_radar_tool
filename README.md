@@ -2,7 +2,7 @@
 激光雷达测试程序
 
 ## 效果图
-![image](./README_pic/data.png)
+![image](./README_pic/Figure_1.png)
 
 ## 环境
 Python3.7
