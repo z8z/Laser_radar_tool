@@ -6,15 +6,20 @@
 
 ## 环境
 Python3.7
+
 使用库
+
 serial
 
-numpy as np
+numpy
 
 math
 
-matplotlib.pyplot 
+matplotlib
 
+pip 安装命令
+
+		pip install serial numpy math matplotlib
 
 ## 接线方式
 5V
